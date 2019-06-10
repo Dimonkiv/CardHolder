@@ -1,0 +1,15 @@
+package com.dimonkiv.cardscanner.utill
+
+enum class FragmentById {
+    BACK_FRAGMENT,
+    AUTH_FINISHED,
+
+    LOGIN_FRAGMENT,
+    REGISTRATION_FRAGMENT,
+
+    DASHBOARD_FRAGMENT,
+    CREATE_CARD_FRAGMENT,
+    CATEGORY_FRAGMENT,
+    CAMERA_FRAGMENT,
+    CARD_RECOGNITION_FRAGMENT,
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/name"
+        android:title="Назва"/>
+
+    <item
+        android:id="@+id/address"
+        android:title="Адреса"/>
+
+    <item
+        android:id="@+id/email"
+        android:title="Електронна пошта"/>
+
+    <item
+        android:id="@+id/phone"
+        android:title="Номер телефону"/>
+
+    <item
+        android:id="@+id/site"
+        android:title="Вебсайт"/>
+</menu>

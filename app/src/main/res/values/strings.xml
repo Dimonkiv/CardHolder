@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">CardScanner</string>
+    <string name="add_category">Додати категорію</string>
+    <string name="category">Категорії</string>
+    <string name="search">Пошук</string>
+    <string name="settings">Налаштування</string>
+    <string name="important_fields">Обов’язкові поля</string>
+    <string name="select_category">Виберіть категорію:</string>
+    <string name="add_to_contact">додати до контактів</string>
+    <string name="name">Ім’я</string>
+    <string name="phone">Телефон</string>
+    <string name="additional_fields">Додаткові поля</string>
+    <string name="email">Електронна пошта</string>
+    <string name="address">Адреса</string>
+    <string name="website">Вебсайт</string>
+    <string name="result_of_text_recognition">Результати розпізнавання тексту</string>
+    <string name="no_photo_message">Для розпізнавання тксту зробіть фотографію візитки</string>
+</resources>
