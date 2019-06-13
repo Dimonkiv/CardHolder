@@ -10,6 +10,9 @@ interface CategoryDAO {
     @Query("SELECT * FROM CATEGORY")
     fun getAll(): List<Category>
 
+    @Query("SELECT * FROM CATEGORY WHERE id = :categoryId")
+    fun getById(categoryId: Int): Category
+
     @Insert
     fun insert(category: Category)
 }

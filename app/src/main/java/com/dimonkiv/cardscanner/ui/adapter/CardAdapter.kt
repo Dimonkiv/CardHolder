@@ -9,10 +9,13 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.BusinessCard
+import com.dimonkiv.cardscanner.data.model.Image
+import com.dimonkiv.cardscanner.ui.widgets.CircleIcon
 import com.dimonkiv.cardscanner.utill.callback.CardCallback
 
 class CardAdapter(private val callback: CardCallback): RecyclerView.Adapter<CardAdapter.ViewHolder>() {
     private val cardList = ArrayList<BusinessCard>()
+    private val imageList = ArrayList<Image>()
 
     override fun onCreateViewHolder(container: ViewGroup, p1: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(container.context)
@@ -23,21 +26,23 @@ class CardAdapter(private val callback: CardCallback): RecyclerView.Adapter<Card
         return cardList.size
     }
 
-    fun setCardList(cardList: List<BusinessCard>) {
+    fun setCardList(cardList: List<BusinessCard>, imageList: List<Image>) {
         this.cardList.addAll(cardList)
+        this.imageList.addAll(imageList)
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, pos: Int) {
         val card = cardList[pos]
-        holder.bind(card)
+        val image = imageList[pos]
+        holder.bind(card, image)
     }
 
     inner class ViewHolder(private val item: View): RecyclerView.ViewHolder(item) {
         private lateinit var phoneTV: TextView
         private lateinit var emailTV: TextView
         private lateinit var nameTV: TextView
-        private lateinit var iconIV: ImageView
+        private lateinit var iconCI: CircleIcon
         private lateinit var shareIV: ImageView
         private lateinit var containerLL: LinearLayout
 
@@ -49,21 +54,22 @@ class CardAdapter(private val callback: CardCallback): RecyclerView.Adapter<Card
             phoneTV = item.findViewById(R.id.phone_tv)
             emailTV = item.findViewById(R.id.email_tv)
             nameTV = item.findViewById(R.id.name_tv)
-            iconIV = item.findViewById(R.id.icon_iv)
+            iconCI = item.findViewById(R.id.icon_ci)
             shareIV = item.findViewById(R.id.share_iv)
             containerLL = item.findViewById(R.id.container_ll)
         }
 
-        fun bind(card: BusinessCard) {
+        fun bind(card: BusinessCard, image: Image) {
             nameTV.text = card.name
             phoneTV.text = card.phone
             emailTV.text = card.email
+            iconCI.setIconDrawable(image.imageId)
 
 
             shareIV.setOnClickListener {  }
 
             containerLL.setOnClickListener {
-                callback.onCardItemClick()}
+                callback.onCardItemClick(card.id)}
         }
 
     }

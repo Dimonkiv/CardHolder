@@ -13,6 +13,9 @@ interface BusinessCardDAO {
     @Query("SELECT * FROM BUSINESS_CARD WHERE categoryId = :categoryId")
     fun getAllByCategoryId(categoryId: Int): List<BusinessCard>
 
+    @Query("SELECT * FROM BUSINESS_CARD WHERE id = :id")
+    fun getById(id: Int): BusinessCard
+
     @Insert
     fun insert(businessCard: BusinessCard)
 }

@@ -10,6 +10,7 @@ import android.view.MenuInflater
 import android.view.View
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.BusinessCard
+import com.dimonkiv.cardscanner.data.model.Image
 import com.dimonkiv.cardscanner.ui.adapter.CardAdapter
 import com.dimonkiv.cardscanner.ui.modules.main.MainActivity
 import com.dimonkiv.cardscanner.utill.callback.CardCallback
@@ -54,11 +55,11 @@ class DashboardView(
         recyclerView.adapter = adapter
     }
 
-    override fun onCardItemClick() {
-        presenter.onCardItemClick()
+    override fun onCardItemClick(cardId: Int) {
+        presenter.onCardItemClick(cardId)
     }
 
-    override fun showCardList(cardList: List<BusinessCard>) {
-        adapter.setCardList(cardList)
+    override fun showCardList(cardList: List<BusinessCard>, imageList: List<Image>) {
+        adapter.setCardList(cardList, imageList)
     }
 }

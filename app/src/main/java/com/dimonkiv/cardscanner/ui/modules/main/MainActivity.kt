@@ -9,6 +9,7 @@ import android.widget.RelativeLayout
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.FragmentData
 import com.dimonkiv.cardscanner.ui.modules.main.camera.CameraFragment
+import com.dimonkiv.cardscanner.ui.modules.main.carddetail.CardDetailFragment
 import com.dimonkiv.cardscanner.ui.modules.main.cardrecognition.CardRecognitionFragment
 import com.dimonkiv.cardscanner.ui.modules.main.category.CategoryFragment
 import com.dimonkiv.cardscanner.ui.modules.main.createcard.CreateCardFragment
@@ -42,6 +43,8 @@ class MainActivity : AppCompatActivity() {
             CAMERA_FRAGMENT -> addToContainer(CameraFragment(), null)
 
             CARD_RECOGNITION_FRAGMENT -> addToContainer(CardRecognitionFragment(), fragmentData.getBundle())
+
+            CARD_DETAIL_FRAGMENT -> addToContainer(CardDetailFragment(), fragmentData.getBundle())
 
             BACK_FRAGMENT -> onBackPressed()
         }
