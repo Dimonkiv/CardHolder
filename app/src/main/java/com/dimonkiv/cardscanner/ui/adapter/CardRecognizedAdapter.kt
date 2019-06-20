@@ -68,7 +68,7 @@ class CardRecognizedAdapter(private val context: Context,
                 return
             }
 
-            doneIB.setImageResource(R.drawable.icon_done_approved)
+            doneIB.setImageResource(R.drawable.ic_done_approved)
         }
 
         private fun showPopupMenu(item: RecognizedText) {

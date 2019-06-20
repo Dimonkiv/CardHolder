@@ -7,7 +7,6 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.dimonkiv.cardscanner.R
@@ -59,7 +58,7 @@ class CameraView(private val activity: MainActivity,
         photoPreviewIV.visibility = View.VISIBLE
         noPhotoContainerLL.visibility = View.GONE
         replayPhotoIV.visibility = View.VISIBLE
-        takePhotoFAB.setImageResource(R.drawable.icon_done_white)
+        takePhotoFAB.setImageResource(R.drawable.ic_done_white)
     }
 
     override fun showMessage(message: String) {
