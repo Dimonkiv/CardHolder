@@ -26,5 +26,7 @@ interface CategoryContract {
         fun onSettingsButtonClick()
     }
 
-    interface Fragment
+    interface Fragment {
+        fun showAddCategoryFragment()
+    }
 }

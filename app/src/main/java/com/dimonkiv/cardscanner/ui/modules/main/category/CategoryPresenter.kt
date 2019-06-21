@@ -50,7 +50,7 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
 
     /*-----------------------------------------Listeners------------------------------------------*/
     override fun onAddCategoryClick() {
-
+        fragment.showAddCategoryFragment()
     }
 
     override fun onSearchButtonClick() {

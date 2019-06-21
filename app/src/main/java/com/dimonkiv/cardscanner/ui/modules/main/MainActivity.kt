@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.FragmentData
+import com.dimonkiv.cardscanner.ui.modules.main.addcategory.AddCategoryFragment
+import com.dimonkiv.cardscanner.ui.modules.main.addcategory.AddCategoryPresenter
 import com.dimonkiv.cardscanner.ui.modules.main.camera.CameraFragment
 import com.dimonkiv.cardscanner.ui.modules.main.carddetail.CardDetailFragment
 import com.dimonkiv.cardscanner.ui.modules.main.cardrecognition.CardRecognitionFragment
@@ -19,6 +22,7 @@ import com.dimonkiv.cardscanner.utill.FragmentById.*
 class MainActivity : AppCompatActivity() {
     private lateinit var navigationMenu: BottomNavigationView
     private lateinit var progressBar: RelativeLayout
+    private lateinit var dialogContainer: FrameLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initBottomNavigationMenu()
         initProgressBar()
+        dialogContainer = findViewById(R.id.dialog_container)
         changeFragment(FragmentData(DASHBOARD_FRAGMENT))
     }
 
@@ -46,7 +51,15 @@ class MainActivity : AppCompatActivity() {
 
             CARD_DETAIL_FRAGMENT -> addToContainer(CardDetailFragment(), fragmentData.getBundle())
 
-            BACK_FRAGMENT -> onBackPressed()
+            ADD_CATEGORY_FRAGMENT -> {
+                setDialogModeForDialogContainer()
+                addFragmentToDialogContainer(AddCategoryFragment(), null)
+            }
+
+            BACK_FRAGMENT -> {
+                setNormalModeForDialogContainer()
+                onBackPressed()
+            }
         }
 
     }
@@ -93,11 +106,37 @@ class MainActivity : AppCompatActivity() {
                 .commit()
     }
 
+    private fun addFragmentToDialogContainer(fragment: Fragment, bundle: Bundle?) {
+
+        if (bundle != null) fragment.arguments = bundle
+
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.dialog_container, fragment)
+                .addToBackStack(null)
+                .commit()
+    }
+
     fun showProgressBar() {
         progressBar.visibility = View.VISIBLE
     }
 
     fun hideProgressBar() {
         progressBar.visibility = View.GONE
+    }
+
+    private fun setDialogModeForDialogContainer() {
+        val params = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
+        dialogContainer.layoutParams = params
+    }
+
+    private fun setNormalModeForDialogContainer() {
+        val params = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT
+        )
+        dialogContainer.layoutParams = params
     }
 }

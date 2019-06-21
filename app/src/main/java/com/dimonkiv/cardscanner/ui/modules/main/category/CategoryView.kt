@@ -75,7 +75,7 @@ class CategoryView(private val presenter: CategoryPresenter,
     /*----------------------------------------Listeners-------------------------------------------*/
     private fun setListeners() {
         addCategoryLL.setOnClickListener {
-
+            presenter.onAddCategoryClick()
         }
     }
 
