@@ -17,6 +17,7 @@ import com.dimonkiv.cardscanner.ui.modules.main.cardrecognition.CardRecognitionF
 import com.dimonkiv.cardscanner.ui.modules.main.category.CategoryFragment
 import com.dimonkiv.cardscanner.ui.modules.main.createcard.CreateCardFragment
 import com.dimonkiv.cardscanner.ui.modules.main.dashboard.DashboardFragment
+import com.dimonkiv.cardscanner.ui.modules.main.image.ImageFragment
 import com.dimonkiv.cardscanner.utill.FragmentById.*
 
 class MainActivity : AppCompatActivity() {
@@ -54,6 +55,11 @@ class MainActivity : AppCompatActivity() {
             ADD_CATEGORY_FRAGMENT -> {
                 setDialogModeForDialogContainer()
                 addFragmentToDialogContainer(AddCategoryFragment(), null)
+            }
+
+            IMAGE_FRAGMENT -> {
+                setDialogModeForDialogContainer()
+                addFragmentToDialogContainer(ImageFragment(), null)
             }
 
             BACK_FRAGMENT -> {

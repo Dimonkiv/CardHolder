@@ -6,7 +6,18 @@ interface AddCategoryContract {
 
     interface Presenter {
         fun setView(view: AddCategoryView)
+
+        fun onCancelButtonClick()
+
+        fun onAddButtonClick()
+
+        fun onSelectImageButtonClick()
     }
 
-    interface Fragment
+    interface Fragment {
+
+        fun showPreviousFragment()
+
+        fun showImageFragment()
+    }
 }

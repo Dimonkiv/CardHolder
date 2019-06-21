@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dimonkiv.cardscanner.R
+import com.dimonkiv.cardscanner.data.model.FragmentData
+import com.dimonkiv.cardscanner.ui.modules.main.MainActivity
+import com.dimonkiv.cardscanner.utill.FragmentById
 
 class AddCategoryFragment: Fragment(), AddCategoryContract.Fragment {
+
     private lateinit var root: View
     private lateinit var presenter: AddCategoryPresenter
     private lateinit var view: AddCategoryView
@@ -27,5 +31,17 @@ class AddCategoryFragment: Fragment(), AddCategoryContract.Fragment {
 
     private fun initView() {
         view = AddCategoryView(presenter, context!!, root)
+    }
+
+    private fun getMainActivity(): MainActivity {
+        return activity as MainActivity
+    }
+
+    override fun showPreviousFragment() {
+        getMainActivity().changeFragment(FragmentData(FragmentById.BACK_FRAGMENT))
+    }
+
+    override fun showImageFragment() {
+        getMainActivity().changeFragment(FragmentData(FragmentById.IMAGE_FRAGMENT))
     }
 }

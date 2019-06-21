@@ -32,10 +32,16 @@ class AddCategoryView(private val presenter: AddCategoryPresenter,
     }
 
     private fun setListeners() {
-        imageContainerRL.setOnClickListener {  }
+        imageContainerRL.setOnClickListener {
+            presenter.onSelectImageButtonClick()
+        }
 
-        cancelBtn.setOnClickListener {  }
+        cancelBtn.setOnClickListener {
+            presenter.onCancelButtonClick()
+        }
 
-        addBtn.setOnClickListener {  }
+        addBtn.setOnClickListener {
+            presenter.onAddButtonClick()
+        }
     }
 }
