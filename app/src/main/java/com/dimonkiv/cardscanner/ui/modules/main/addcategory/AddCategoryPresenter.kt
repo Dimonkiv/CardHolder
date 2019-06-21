@@ -33,9 +33,22 @@ class AddCategoryPresenter(private val fragment: AddCategoryFragment): AddCatego
         TempLocalStorage.getInstance().setSelectedImageId(null)
 
         if (category.imageId == 0) {
-
+            view.showMessage("Ви не вибрали картинку для категорії!")
+            return
         }
 
+        if (category.title.isEmpty()) {
+            view.showMessage("Введіть назву категорії!")
+            return
+        }
+
+        addCategory()
+        view.showMessage("Нову категорію додано!")
+        fragment.showPreviousFragment()
+    }
+
+    private fun addCategory() {
+        db.categoryDao().insert(category)
     }
 
     override fun onSelectImageButtonClick() {

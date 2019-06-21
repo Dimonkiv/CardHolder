@@ -7,7 +7,7 @@ interface AddCategoryContract {
     interface View {
         fun showImage(image: Image)
 
-        fun showMessage()
+        fun showMessage(message: String)
     }
 
     interface Presenter {

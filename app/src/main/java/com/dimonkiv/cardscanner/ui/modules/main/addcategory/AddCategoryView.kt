@@ -4,10 +4,7 @@ import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RelativeLayout
+import android.widget.*
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.Image
 
@@ -45,7 +42,7 @@ class AddCategoryView(private val presenter: AddCategoryPresenter,
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
+                presenter.onCategoryTextChanged(s.toString())
             }
 
         })
@@ -60,6 +57,10 @@ class AddCategoryView(private val presenter: AddCategoryPresenter,
         addBtn.setOnClickListener {
             presenter.onAddButtonClick()
         }
+    }
+
+    override fun showMessage(message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun showImage(image: Image) {
