@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dimonkiv.cardscanner.R
+import com.dimonkiv.cardscanner.data.model.FragmentData
+import com.dimonkiv.cardscanner.ui.modules.main.MainActivity
+import com.dimonkiv.cardscanner.utill.FragmentById
 
 class ImageFragment: Fragment(), ImageContract.Fragment {
     private lateinit var root: View
@@ -28,5 +31,13 @@ class ImageFragment: Fragment(), ImageContract.Fragment {
 
     private fun initView() {
         view = ImageView(presenter, context!!, root)
+    }
+
+    private fun getMainActivity(): MainActivity {
+        return activity as MainActivity
+    }
+
+    override fun showPreviousFragment() {
+        getMainActivity().changeFragment(FragmentData(FragmentById.BACK_FRAGMENT))
     }
 }

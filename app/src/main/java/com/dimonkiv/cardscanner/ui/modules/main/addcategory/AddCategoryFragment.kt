@@ -25,6 +25,11 @@ class AddCategoryFragment: Fragment(), AddCategoryContract.Fragment {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        presenter.checkingImageSelected()
+    }
+
     private fun initPresenter() {
         presenter = AddCategoryPresenter(this)
     }

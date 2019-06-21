@@ -11,7 +11,7 @@ import com.dimonkiv.cardscanner.ui.adapter.ImageAdapter
 
 class ImageView(private val presenter: ImagePresenter,
                 private val context: Context,
-                private val view: View) : ImageContract.View {
+                private val view: View) : ImageContract.View, ImageAdapter.Callback {
 
     private lateinit var cancelBtn: Button
     private lateinit var selectBtn: Button
@@ -33,16 +33,24 @@ class ImageView(private val presenter: ImagePresenter,
     }
 
     private fun initAdapter() {
-        adapter = ImageAdapter()
+        adapter = ImageAdapter(this)
 
         recyclerView.layoutManager = GridLayoutManager(context, 4)
         recyclerView.adapter = adapter
     }
 
     private fun setListeners() {
-        cancelBtn.setOnClickListener {  }
+        cancelBtn.setOnClickListener {
+            presenter.onCancelButtonClick()
+        }
 
-        selectBtn.setOnClickListener {  }
+        selectBtn.setOnClickListener {
+            presenter.onSelectButtonClick()
+        }
+    }
+
+    override fun onSelectItem(imageId: Int) {
+        presenter.onSelectItem(imageId)
     }
 
     override fun showImages(imageList: List<Image>) {

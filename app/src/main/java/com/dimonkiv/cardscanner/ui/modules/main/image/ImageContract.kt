@@ -11,7 +11,16 @@ interface ImageContract {
 
     interface Presenter {
         fun setView(view: ImageView)
+
+        fun onCancelButtonClick()
+
+        fun onSelectButtonClick()
+
+        fun onSelectItem(imageId: Int)
     }
 
-    interface Fragment
+    interface Fragment {
+
+        fun showPreviousFragment()
+    }
 }

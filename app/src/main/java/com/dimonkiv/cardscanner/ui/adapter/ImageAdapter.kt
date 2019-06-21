@@ -7,11 +7,17 @@ import android.view.ViewGroup
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.Image
 import com.dimonkiv.cardscanner.ui.widgets.CircleIcon
+import java.util.*
+import kotlin.collections.ArrayList
 
-class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ViewHolder>()  {
+class ImageAdapter(private val callback: Callback) : RecyclerView.Adapter<ImageAdapter.ViewHolder>()  {
     private val imageList = ArrayList<Image>()
     private val isSelectedItemList = ArrayList<Boolean>()
     private var prevItemPos: Int? = null
+
+    interface Callback {
+        fun onSelectItem(imageId: Int)
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): ViewHolder {
@@ -64,6 +70,7 @@ class ImageAdapter : RecyclerView.Adapter<ImageAdapter.ViewHolder>()  {
 
 
             iconCI.setOnClickListener {
+                callback.onSelectItem(item.id)
                 onSelectItem()
             }
         }
