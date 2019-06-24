@@ -16,7 +16,6 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
     /*----------------------------------Initialization--------------------------------------------*/
     init {
         initDB()
-        loadData()
     }
 
     private fun initDB() {
@@ -25,12 +24,12 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
 
     override fun setView(view: CategoryView) {
         this.view = view
-        showInitialData()
     }
 
-    private fun loadData() {
+    override fun loadData() {
         loadCategoryData()
         loadImageData()
+        showInitialData()
     }
 
     private fun loadCategoryData() {
@@ -50,7 +49,7 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
 
     /*-----------------------------------------Listeners------------------------------------------*/
     override fun onAddCategoryClick() {
-
+        fragment.showAddCategoryFragment()
     }
 
     override fun onSearchButtonClick() {

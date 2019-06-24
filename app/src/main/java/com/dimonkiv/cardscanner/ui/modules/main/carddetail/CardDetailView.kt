@@ -58,7 +58,7 @@ class CardDetailView(private val presenter: CardDetailPresenter,
     private fun initToolbar() {
         activity.setSupportActionBar(toolbar)
 
-        toolbar.setNavigationIcon(R.drawable.icon_back)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
         toolbar.setNavigationOnClickListener {  }
     }
 

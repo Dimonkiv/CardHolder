@@ -67,7 +67,7 @@ class CardRecognitionView(private val fragment: CardRecognitionFragment,
         activity.supportActionBar?.title = "Редагування візитки"
         fragment.setHasOptionsMenu(true)
 
-        toolbar.setNavigationIcon(R.drawable.icon_back)
+        toolbar.setNavigationIcon(R.drawable.ic_back)
         toolbar.setNavigationOnClickListener {
             presenter.onBackButtonClick()
         }
@@ -206,12 +206,12 @@ class CardRecognitionView(private val fragment: CardRecognitionFragment,
 
     override fun hideRecognitionFields() {
         recyclerView.visibility = View.GONE
-        hideIB.setImageResource(R.drawable.icon_arrow_top)
+        hideIB.setImageResource(R.drawable.ic_arrow_top)
     }
 
     override fun showRecognitionFields() {
         recyclerView.visibility = View.VISIBLE
-        hideIB.setImageResource(R.drawable.icon_arrow_bottom)
+        hideIB.setImageResource(R.drawable.ic_arrow_bottom)
     }
 
     override fun hideRecognitionContainer() {

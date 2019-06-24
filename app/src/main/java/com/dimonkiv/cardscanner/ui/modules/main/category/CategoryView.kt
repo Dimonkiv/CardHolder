@@ -44,7 +44,7 @@ class CategoryView(private val presenter: CategoryPresenter,
         recyclerView = view.findViewById(R.id.recycler_view)
         addCategoryLL = view.findViewById(R.id.add_category_ll)
         iconCI = view.findViewById(R.id.icon_CI)
-        iconCI.setIconDrawable(R.drawable.icon_add)
+        iconCI.setIconDrawable(R.drawable.ic_add)
     }
 
     //toolbar
@@ -75,7 +75,7 @@ class CategoryView(private val presenter: CategoryPresenter,
     /*----------------------------------------Listeners-------------------------------------------*/
     private fun setListeners() {
         addCategoryLL.setOnClickListener {
-
+            presenter.onAddCategoryClick()
         }
     }
 

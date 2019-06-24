@@ -19,6 +19,8 @@ interface CategoryContract {
     interface Presenter {
         fun setView(view: CategoryView)
 
+        fun loadData()
+
         fun onAddCategoryClick()
 
         fun onSearchButtonClick()
@@ -26,5 +28,7 @@ interface CategoryContract {
         fun onSettingsButtonClick()
     }
 
-    interface Fragment
+    interface Fragment {
+        fun showAddCategoryFragment()
+    }
 }
