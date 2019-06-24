@@ -1,5 +1,6 @@
 package com.dimonkiv.cardscanner.ui.modules.main.addcategory
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import com.dimonkiv.cardscanner.R
 import com.dimonkiv.cardscanner.data.model.FragmentData
 import com.dimonkiv.cardscanner.ui.modules.main.MainActivity
+import com.dimonkiv.cardscanner.ui.modules.main.category.CategoryFragment
 import com.dimonkiv.cardscanner.utill.FragmentById
 
 class AddCategoryFragment: Fragment(), AddCategoryContract.Fragment {

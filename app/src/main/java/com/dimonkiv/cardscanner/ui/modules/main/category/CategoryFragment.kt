@@ -1,5 +1,6 @@
 package com.dimonkiv.cardscanner.ui.modules.main.category
 
+
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
@@ -16,6 +17,7 @@ class CategoryFragment: Fragment(), CategoryContract.Fragment {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         root = inflater.inflate(R.layout.fragment_category, container, false)
 
+
         initPresenter()
         initView()
 
@@ -26,6 +28,7 @@ class CategoryFragment: Fragment(), CategoryContract.Fragment {
         super.onResume()
         presenter.loadData()
     }
+
 
     private fun initPresenter() {
         presenter = CategoryPresenter(this)
