@@ -17,6 +17,6 @@ interface ImageDAO {
     @Insert
     fun insert(image: Image)
 
-    @Query("UPDATE IMAGE Set isUsed = :isUsed WHERE id =:id")
-    fun setUsed(isUsed:Boolean, id: Int)
+    @Query("UPDATE IMAGE Set isUsed = 1 WHERE id =:id")
+    fun setUsed(id: Int)
 }

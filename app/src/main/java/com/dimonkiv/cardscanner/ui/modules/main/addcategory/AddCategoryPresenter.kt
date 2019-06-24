@@ -49,6 +49,7 @@ class AddCategoryPresenter(private val fragment: AddCategoryFragment): AddCatego
 
     private fun addCategory() {
         db.categoryDao().insert(category)
+        db.imageDao().setUsed(category.imageId)
     }
 
     override fun onSelectImageButtonClick() {

@@ -77,18 +77,18 @@ class App : Application() {
 
         var category = Category(1,"Робота",1)
         categoryDao.categoryDao().insert(category)
-        imageDAO.setUsed(true, 1)
+        imageDAO.setUsed(1)
 
         category = Category(2,"Магазини",2)
         categoryDao.categoryDao().insert(category)
-        imageDAO.setUsed(true, 2)
+        imageDAO.setUsed(2)
 
         category = Category(3,"Авто",3)
         categoryDao.categoryDao().insert(category)
-        imageDAO.setUsed(true, 3)
+        imageDAO.setUsed(3)
 
         category = Category(4,"Здоров’я",4)
         categoryDao.categoryDao().insert(category)
-        imageDAO.setUsed(true, 4)
+        imageDAO.setUsed(4)
     }
 }
