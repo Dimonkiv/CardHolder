@@ -69,7 +69,9 @@ class CardDetailView(private val presenter: CardDetailPresenter,
 
         shareIV.setOnClickListener {  }
 
-        favouriteIV.setOnClickListener {  }
+        favouriteIV.setOnClickListener {
+            presenter.onFavouriteButtonClick()
+        }
     }
 
     override fun showTitle(title: String) {
@@ -99,5 +101,13 @@ class CardDetailView(private val presenter: CardDetailPresenter,
 
     override fun showAddress(address: String) {
         addressTV.text = address
+    }
+
+    override fun setFavouriteMode() {
+        favouriteIV.setImageResource(R.drawable.ic_favourite_yellow)
+    }
+
+    override fun setNotFavouriteMode() {
+        favouriteIV.setImageResource(R.drawable.ic_no_favourite_yellow)
     }
 }

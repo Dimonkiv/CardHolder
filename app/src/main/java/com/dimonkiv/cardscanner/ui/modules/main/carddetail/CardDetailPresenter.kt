@@ -41,6 +41,18 @@ class CardDetailPresenter(private val fragment: CardDetailFragment) : CardDetail
         image = db.imageDao().getImageById(category?.imageId!!)
     }
 
+    override fun onFavouriteButtonClick() {
+        val isFavourite = card?.isFavourite
+
+        if(isFavourite!!) {
+            view.setNotFavouriteMode()
+        } else {
+            view.setFavouriteMode()
+        }
+
+        db.businessCardDao().updateFavourite(!isFavourite, cardId)
+    }
+
     private fun showInitialData() {
         showTitle()
         showImage()
@@ -49,6 +61,7 @@ class CardDetailPresenter(private val fragment: CardDetailFragment) : CardDetail
         showEmail()
         showWebsite()
         showAddress()
+        showFavoriteIcon()
     }
 
     private fun showTitle() {
@@ -95,6 +108,17 @@ class CardDetailPresenter(private val fragment: CardDetailFragment) : CardDetail
         if (address != null) {
             view.showAddress(address)
         }
+    }
+
+    private fun showFavoriteIcon() {
+        val isFavourite = card?.isFavourite
+
+        if (isFavourite!!) {
+            view.setFavouriteMode()
+            return
+        }
+
+        view.setNotFavouriteMode()
     }
 
 }

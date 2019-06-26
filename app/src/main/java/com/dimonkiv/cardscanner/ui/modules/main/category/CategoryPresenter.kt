@@ -24,6 +24,7 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
 
     override fun setView(view: CategoryView) {
         this.view = view
+        loadData()
     }
 
     override fun loadData() {
@@ -34,11 +35,13 @@ class CategoryPresenter(private val fragment: CategoryFragment): CategoryContrac
 
     private fun loadCategoryData() {
         val categoryDAO = db.categoryDao()
+        this.categoryList.clear()
         categoryList.addAll(categoryDAO.getAll())
     }
 
     private fun loadImageData() {
         val imageDao = db.imageDao()
+        imageList.clear()
 
         for(it in categoryList) {
             val image = imageDao.getImageById(it.imageId)

@@ -16,12 +16,18 @@ interface CardDetailContract {
         fun showWebsite(website: String)
 
         fun showAddress(address: String)
+
+        fun setFavouriteMode()
+
+        fun setNotFavouriteMode()
     }
 
     interface Presenter {
         fun setView(view: CardDetailView)
 
         fun setCardId(cardId: Int)
+
+        fun onFavouriteButtonClick()
     }
 
     interface Fragment

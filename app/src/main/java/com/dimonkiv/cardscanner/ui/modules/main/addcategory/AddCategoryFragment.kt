@@ -51,4 +51,11 @@ class AddCategoryFragment: Fragment(), AddCategoryContract.Fragment {
     override fun showImageFragment() {
         getMainActivity().changeFragment(FragmentData(FragmentById.IMAGE_FRAGMENT))
     }
+
+    override fun sendChangeCategoriesBroadcast() {
+        Intent().also { intent ->
+            intent.action = CategoryFragment.NEW_CATEGORY_FILTER
+            getMainActivity().sendBroadcast(intent)
+        }
+    }
 }

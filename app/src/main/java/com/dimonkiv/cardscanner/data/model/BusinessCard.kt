@@ -11,4 +11,5 @@ data class BusinessCard(@PrimaryKey(autoGenerate = true) var id: Int = 0,
                         var email: String = "",
                         var phone: String = "",
                         var location: String = "",
-                        var categoryId: Int = 0)
+                        var categoryId: Int = 0,
+                        var isFavourite: Boolean = false)

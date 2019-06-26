@@ -29,5 +29,7 @@ interface AddCategoryContract {
         fun showPreviousFragment()
 
         fun showImageFragment()
+
+        fun sendChangeCategoriesBroadcast()
     }
 }

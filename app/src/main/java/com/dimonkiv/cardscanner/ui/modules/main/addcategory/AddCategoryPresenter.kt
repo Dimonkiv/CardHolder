@@ -44,6 +44,7 @@ class AddCategoryPresenter(private val fragment: AddCategoryFragment): AddCatego
 
         addCategory()
         view.showMessage("Нову категорію додано!")
+        fragment.sendChangeCategoriesBroadcast()
         fragment.showPreviousFragment()
     }
 
